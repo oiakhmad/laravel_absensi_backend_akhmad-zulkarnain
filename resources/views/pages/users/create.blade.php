@@ -84,8 +84,18 @@
                             </div>
                             <div class="form-group">
                                 <label>Phone</label>
-                                <input type="number" class="form-control" name="phone">
+                                <input type="number"
+                                    class="form-control @error('phone')
+                                is-invalid
+                            @enderror"
+                                    name="phone">
+                                @error('phone')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                             </div>
+
                             <div class="form-group">
                                 <label class="form-label">Role</label>
                                 <div class="selectgroup w-100">
@@ -95,12 +105,12 @@
                                         <span class="selectgroup-button">Admin</span>
                                     </label>
                                     <label class="selectgroup-item">
-                                        <input type="radio" name="role" value="doctor" class="selectgroup-input">
-                                        <span class="selectgroup-button">Doctor</span>
+                                        <input type="radio" name="role" value="supervisor" class="selectgroup-input">
+                                        <span class="selectgroup-button">Supervisor</span>
                                     </label>
                                     <label class="selectgroup-item">
-                                        <input type="radio" name="role" value="user" class="selectgroup-input">
-                                        <span class="selectgroup-button">User</span>
+                                        <input type="radio" name="role" value="staft" class="selectgroup-input">
+                                        <span class="selectgroup-button">Staf</span>
                                     </label>
 
                                 </div>
