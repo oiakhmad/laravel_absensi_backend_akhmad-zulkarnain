@@ -40,12 +40,16 @@ class UserController extends Controller
             'email'=>'required|email',
             'phone'=>'required',
             'password'=>'required',
+            'position'=>'required',
+            'departement'=>'required',
             'role'=>'required'
         ]);
      $user = new User();
      $user->name = $request->name;
      $user->email = $request->email;
      $user->phone = $request->phone;
+     $user->position = $request->position;
+     $user->departement = $request->departement;
      $user->password = Hash::make($request->password);
      $user->role = $request->role;
 
@@ -66,17 +70,20 @@ class UserController extends Controller
             'name'=>'required',
             'email'=>'required|email',
             'phone'=>'required',
+            'position'=>'required',
+            'phone'=>'required',
             'role'=>'required'
         ]);
 
         $user = User::find($id);
         $user->name = $request->name;
         $user->email = $request->email;
+        $user->position = $request->position;
+        $user->departement = $request->departement;
         $user->phone = $request->phone;
         $user->role = $request->role;
-
-        if ($user->password){
-        $user->password = Hash::make($request->password);
+        if (isset($request->password)){
+           $user->password = Hash::make($request->password);
         }
 
         $user->save();

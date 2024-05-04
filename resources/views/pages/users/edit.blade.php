@@ -84,12 +84,40 @@
                                 @enderror
                             </div>
                             <div class="form-group">
+                                <label>Position</label>
+                                <input type="text"
+                                    class="form-control @error('position')
+                                is-invalid
+                            @enderror"
+                                    name="position" value="{{ $user->position }}">
+                                @error('position')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
+                            </div>
+
+                            <div class="form-group">
+                                <label>Departement</label>
+                                <input type="text"
+                                    class="form-control @error('departement')
+                                is-invalid
+                            @enderror"
+                                    name="departement" value="{{ $user->departement }}">
+                                @error('departement')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
+                            </div>
+
+                            <div class="form-group">
                                 <label>Phone</label>
                                 <input type="number"
                                     class="form-control @error('phone')
                                 is-invalid
                             @enderror"
-                                    name="phone">
+                                    name="phone" value="{{ $user->phone }}">
                                 @error('phone')
                                     <div class="invalid-feedback">
                                         {{ $message }}
