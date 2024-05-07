@@ -30,6 +30,10 @@
                 <a class="nav-link" href="{{ url('users ') }}"><i class="far fa-user">
                     </i> <span>Users</span>
                 </a>
+
+                <a class="nav-link" href="{{ route('companies.show', 1) }}"><i class="far fa-user">
+                    </i> <span>Companies</span>
+                </a>
             </li>
     </aside>
 </div>
