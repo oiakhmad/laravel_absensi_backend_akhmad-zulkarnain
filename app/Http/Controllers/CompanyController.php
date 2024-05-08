@@ -10,7 +10,10 @@ class CompanyController extends Controller
     public function show($id)
     {
         $company = Company::find(1);
-        return view('pages.company.show', compact('company'));
+
+         return view('pages.company.show', [
+            'company'=>     $company,
+        ]);
     }
 
     public function edit($id)

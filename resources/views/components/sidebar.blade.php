@@ -9,29 +9,27 @@
         <ul class="sidebar-menu">
 
             <li class="menu-header">Dashboard</li>
-            <li class="{{ Request::is('dashboard') ? 'active' : '' }}">
-                <a class="nav-link" href="{{ url('dashboard ') }}"><i class="fas fas fa-fire">
+            <li class="{{ Request::is('home') ? 'active' : '' }}">
+                <a class="nav-link" href="{{ url('home ') }}"><i class="fas fas fa-fire">
                     </i> <span>Dashboard</span>
                 </a>
             </li>
-            {{-- <li class="nav-item dropdown {{ $type_menu === 'dashboard' ? 'active' : '' }}">
-                <a href="#" class="nav-link has-dropdown"><i class="fas fa-fire"></i><span>Dashboard</span></a>
-                <ul class="dropdown-menu">
-                    <li class='{{ Request::is('dashboard-general-dashboard') ? 'active' : '' }}'>
-                        <a class="nav-link" href="{{ url('dashboard-general-dashboard') }}">General Dashboard</a>
-                    </li>
-                    <li class="{{ Request::is('dashboard-ecommerce-dashboard') ? 'active' : '' }}">
-                        <a class="nav-link" href="{{ url('dashboard-ecommerce-dashboard') }}">Ecommerce Dashboard</a>
-                    </li>
-                </ul>
-            </li> --}}
+
             <li class="menu-header">Master Data</li>
             <li class="{{ Request::is('users') ? 'active' : '' }}">
                 <a class="nav-link" href="{{ url('users ') }}"><i class="far fa-user">
                     </i> <span>Users</span>
                 </a>
+            </li>
 
-                <a class="nav-link" href="{{ route('companies.show', 1) }}"><i class="far fa-user">
+            <li class="{{ Request::is('companies/1') ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('companies.show', 1) }}"><i class="fas fa-columns">
+                    </i> <span>Companies</span>
+                </a>
+            </li>
+
+            <li class="{{ Request::is('attendances') ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('attendances.index') }}"><i class="fas fa-columns">
                     </i> <span>Companies</span>
                 </a>
             </li>
