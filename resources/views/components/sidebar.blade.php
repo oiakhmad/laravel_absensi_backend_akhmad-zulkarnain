@@ -30,7 +30,7 @@
 
             <li class="{{ Request::is('attendances') ? 'active' : '' }}">
                 <a class="nav-link" href="{{ route('attendances.index') }}"><i class="fas fa-columns">
-                    </i> <span>Companies</span>
+                    </i> <span>Attendance</span>
                 </a>
             </li>
 
