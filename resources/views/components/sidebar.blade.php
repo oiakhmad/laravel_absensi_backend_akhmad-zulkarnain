@@ -33,5 +33,11 @@
                     </i> <span>Companies</span>
                 </a>
             </li>
+
+            <li class="{{ Request::is('permissions') ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('permissions.index') }}"><i class="fas fa-columns">
+                    </i> <span>Permissions</span>
+                </a>
+            </li>
     </aside>
 </div>
