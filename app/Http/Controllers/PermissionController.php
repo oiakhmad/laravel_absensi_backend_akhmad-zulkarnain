@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Permission;
+use App\Models\User;
+use Kreait\Firebase\Messaging\CloudMessage;
+use Kreait\Firebase\Messaging\Notification;
+
 class PermissionController extends Controller
 {
      public function index(Request $request)
@@ -33,7 +37,23 @@ class PermissionController extends Controller
     {
         $permission = Permission::find($id);
         $permission->is_approved = $request->is_approved;
-         $permission->save();
+         $str = $request->is_approved == 1 ? 'Disetujui' : 'Ditolak';
+        $permission->save();
+        $this->sendNotificationToUser($permission->user_id, 'Status Izin anda adalah ' . $str);
         return redirect()->route('permissions.index')->with('success', 'Permission updated successfully');
+    }
+
+    public function sendNotificationToUser($userId, $message)
+    {
+        $user = User::find($userId);
+        $token = $user->fcm_token;
+
+        $messaging = app('firebase.messaging');
+        $notification = Notification::create('Status Izin', $message);
+
+        $message = CloudMessage::withTarget('token', $token)
+            ->withNotification($notification);
+
+        $messaging->send($message);
     }
 }
